@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: arrs-devxlabs
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: "pip install -r requirements.txt && playwright install chromium"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.10.0"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: LLM_PROVIDER
+        value: openai
+      - key: OPENAI_MODEL
+        value: gpt-4
+      - key: DATABASE_URL
+        value: sqlite:///data/database.db
