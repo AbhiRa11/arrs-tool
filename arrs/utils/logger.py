@@ -1,6 +1,7 @@
 """Logging utilities for ARRS system."""
 import logging
 import sys
+from typing import Optional
 from pythonjsonlogger import jsonlogger
 from pathlib import Path
 
